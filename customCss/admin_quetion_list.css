@@ -1,0 +1,96 @@
+body{
+    margin: 0px;
+      padding: 0px;
+
+}
+.con{
+    width:100%;
+    margin: 0%;
+    padding: 0px;
+    text-align: center;
+
+}
+.icon{
+    color: #ffff;
+}
+.nav-link{
+    color: #ffff;
+}
+.nav-link:hover{
+    color: gray;
+}
+#navbar{
+    background-color: #752929;
+    color: #ffff;
+    margin:0px;
+  
+}
+.navbar-nav{
+    margin-left:90%;
+}
+.container{
+    border:1px solid hsl(0, 2%, 54%) ;
+    margin-top: 30px;
+    padding-left:0px;
+    padding-right:0px;
+   padding-bottom: 70px;
+    width:60%;
+
+}
+.quetion_list{
+    background-color: #817979;
+    color: #ffff;
+    font-size: bold;
+    font-family: "Segoe UI";
+    font-weight: 120px;
+    padding: 15px;
+   
+    
+    
+}
+
+.question_title{
+    width:60%; 
+}
+.th-title{
+    width:20%; 
+    text-align: center;
+}
+.btnPrevious{
+    border: 1px solid #817979;
+    outline: 0px;
+    margin-right:0px;
+}
+..btnPrevious:hover{
+    outline: 0px;
+}
+.btnNext{
+    border: 1px solid #817979;
+    outline: 0px;
+    margin-left: 0px;
+}
+.label{
+    margin-left: 0px;
+    margin-right:0px;
+}
+
+
+/* this style belongs to  question register */
+
+.Question_Id{
+    font-size:15px;
+    font-weight: bold;
+    
+}
+.btnAdd{
+    background-color: #752929;
+    color:#ffff;
+    width:20%;
+     outline: 0px;
+     border: 0px;
+    margin-right: 80px;
+}
+.btnAdd:hover{
+    background-color:blue;
+    color:#ffff;
+}
