@@ -12,9 +12,9 @@ include_once "include.php";
     <link rel="stylesheet" type="text/css" href="customCss/question.css">
     <script src="ajax.js"></script>
 </head>
-<body onload="espc()">
-   <div class="container container1">
-       <div class="title_container">
+<body class=" bg-secondary pb-5"onload="espc()">
+   <div class="container bg-light container1">
+       <div class="title_container bg-primary">
               Current Affairs
        </div>
        <div class="row">

@@ -1,6 +1,6 @@
 body{
-    margin: 0px;
-      padding: 0px;
+    margin: px;
+      padding-bottom: 20%;
 
 }
 .con{
@@ -33,7 +33,7 @@ body{
     margin-top: 30px;
     padding-left:0px;
     padding-right:0px;
-   padding-bottom: 70px;
+  
     width:60%;
 
 }

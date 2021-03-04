@@ -4,7 +4,7 @@ let option=document.getElementsByName("option1");
 let user_answer=new Array;
 let store_answer=new Array;
 let p=0;
-
+var d;
 //////////////////////// ajax call
 function espc(){
     var xhttp = new XMLHttpRequest();
@@ -45,23 +45,59 @@ function next(){
 
             for(a=0; a < option.length; a++){
                 if ( option[a].checked ){
-                     user_answer[data[i].quetion_id]=option[a].value; //user selected option stored in an array
+                     user_answer[data[i].quetion_id] = option[a].value; //user selected option stored in an array
+                     d=p;
                            if ( p < data.length) {
-                               if ( user_answer[data[i].quetion_id] == data[i].correctOption ){
-                             store_answer[p]=user_answer[data[i].quetion_id];
+                       
+                               if ( user_answer[data[i].quetion_id] == data[i].correctOption ){ //only store answer in array if user seleted right answer;
+                                if (store_answer.includes(user_answer[data[i].quetion_id]) ==true  ){ //if answer already exixt in store answer array
+                                    store_answer.splice(a,1);
+                                  
+                                }else{ // else store answer in store answer array
+                          
+                                   store_answer[p]=user_answer[data[i].quetion_id];
+                                  
+                        
+                                }
+                                
+                               } else{
+                                store_answer.splice(a,1);
                                }
+                               
                              p++;
+                            
                          }
 
                 }
             }
             
-          
+//////////////////////////////////////////////////this initially unchecked all option
             for(b=0; b < option.length; b++){
                 option[b].checked=false;
-            }   
+            }  
+ /////////////////////////////////////////////////////////////           
+           
             i++;
- 
+/////////////////////////////////////////////////////////// this checked user selected option            
+            if (store_answer.includes(user_answer[data[i].quetion_id]) ==true  ){
+                for(a=0; a < option.length; a++){
+                    if (option[a].value == user_answer[data[i].quetion_id]){
+                        store_answer.splice(b,1);
+                        option[a].checked =true; 
+                    }
+                }
+                 
+             } else {
+                for(a=0; a < option.length; a++){
+                    if (option[a].value == user_answer[data[i].quetion_id]){
+                        option[a].checked =true; 
+                        store_answer.splice(b,1);
+                    }
+             }
+            }
+  ////////////////////////////////////////////////////////////////////////////////           
+
+        
             document.getElementById("question").innerHTML=data[i].question;
             document.getElementById("optionA").innerHTML=data[i].optA;
             document.getElementById("optionB").innerHTML=data[i].optB;
@@ -79,6 +115,7 @@ function next(){
 
 //////////////////////////////////beginning of previous button
 function previous(){
+   
     if (i == 0 ){
         document.getElementById("previous").style.visibility = "hidden";
     }
@@ -90,11 +127,25 @@ function previous(){
         
         for(b=0; b < option.length; b++){
             option[b].checked=false;
+           
         }
-
+       
         i--;
-        if (user_answer[data[i].quetion_id]){
-            
+        if (store_answer.includes(user_answer[data[i].quetion_id]) ==true  ){
+            for(a=0; a < option.length; a++){
+                if (option[a].value == user_answer[data[i].quetion_id]){
+                    option[a].checked =true; 
+                    
+                }
+            }
+             
+         }else {
+            for(a=0; a < option.length; a++){
+                if (option[a].value == user_answer[data[i].quetion_id]){
+                    option[a].checked =true; 
+                 
+                }
+         }
         }
 
         document.getElementById("question").innerHTML=data[i].question;
@@ -121,6 +172,8 @@ function submit(){
     let mark_perQuetion=10;
     let user_score=total_attempt_question * mark_perQuetion;
     alert (user_score);
+    store_answer=null;
+    user_answer=null;
 
 
 
